@@ -1,11 +1,55 @@
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
-
-# Home page
-GET     /                           controllers.Application.index
-GET     /test1                       controllers.Application.test1
-GET     /test2/:id                       controllers.Application.test2(id:Int)
-
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+
+# routesの書き方サンプル
+
+## 基本
+
+### 静的パス。Static path。完全一致した場合。
+GET     /test11                      controllers.Application.test11
+
+### 動的パート。Dynamic parts。クライアントからIDを受け取る場合など。/test12/123
+GET     /test12/:id                  controllers.Application.test12(id:Int)
+### 動的パート。ワイルドカードを使える。/test3/hogeや、/test3/huga/fugaなどを受け取れる。
+GET     /test13/*name                controllers.Application.test13(name:String)
+### 動的パート。正規表現を使える。$id<regex>の中に書く。以下の例は数字4文字。
+GET     /test14/$id<[0-9]{4}+>       controllers.Application.test14(id:Int)
+
+
+## 引数について
+
+### 引数を取らない
+GET     /test21                      controllers.Application.test21
+### 引数を取る。書き方その1。/test22/123
+GET     /test22/:id                  controllers.Application.test22(id:Int)
+### 引数を取る。書き方その2。/test23?id=123
+GET     /test23                      controllers.Application.test23(id:Int)
+### 引数の型は省略可。（その場合、Stringになる？）
+GET     /test24/:name                controllers.Application.test24(name)
+### デフォルト引数の設定。/test25?name=hoge
+GET     /test25                      controllers.Application.test25(name="hoge")
+
+
+## HTTPメソッド
+
+### POST、PUT、DELETEに対応している。
+POST    /test31                      controllers.Application.test31
+
+
+## 補足
+### 先に書かれた方が優先される。
+### play ver1系では、HTTPメソッドにワイルドカードが使えたらしい。今はエラーになる。
+#### http://playdocja.appspot.com/documentation/1.1/routes
+#### *       /test41                      controllers.Application.test41
+### play ver1系の引数を中括弧で指定するやり方も無くなったらしい。
+
+
+## 参考資料
+### http://www.playframework.org/documentation/2.0.2/ScalaRouting
+### https://github.com/playframework-ja/Play20/wiki/ScalaRouting
+
+
