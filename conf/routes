@@ -36,7 +36,7 @@ GET     /test25                      controllers.Application.test25(name="hoge")
 
 ## HTTPメソッド
 
-### POST、PUT、DELETEに対応している。
+### POST、GET、PUT、DELETEに対応している。
 POST    /test31                      controllers.Application.test31
 
 
