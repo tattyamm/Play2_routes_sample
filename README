@@ -1,4 +1,7 @@
-This is your new Play 2.0 application
-=====================================
+#Playframework2のroutesの書き方サンプル
 
-This file will be packaged with your application, when using `play dist`.
+##概要
+routesの書き方を一通り試しました。
+
+##作者
+* [@tattyamm](https://twitter.com/tattyamm)

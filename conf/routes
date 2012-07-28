@@ -10,6 +10,7 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 ## 基本
 
 ### 静的パス。Static path。完全一致した場合。
+GET     /                            controllers.Application.index
 GET     /test11                      controllers.Application.test11
 
 ### 動的パート。Dynamic parts。クライアントからIDを受け取る場合など。/test12/123
@@ -38,18 +39,22 @@ GET     /test25                      controllers.Application.test25(name="hoge")
 
 ### POST、GET、PUT、DELETEに対応している。
 POST    /test31                      controllers.Application.test31
+PUT     /test32                      controllers.Application.test32
+DELETE  /test33                      controllers.Application.test33
 
 
 ## 補足
 ### 先に書かれた方が優先される。
 ### play ver1系では、HTTPメソッドにワイルドカードが使えたらしい。今はエラーになる。
-#### http://playdocja.appspot.com/documentation/1.1/routes
+####
 #### *       /test41                      controllers.Application.test41
 ### play ver1系の引数を中括弧で指定するやり方も無くなったらしい。
 
 
 ## 参考資料
-### http://www.playframework.org/documentation/2.0.2/ScalaRouting
-### https://github.com/playframework-ja/Play20/wiki/ScalaRouting
-
+### ver2系の資料
+#### http://www.playframework.org/documentation/2.0.2/ScalaRouting
+#### https://github.com/playframework-ja/Play20/wiki/ScalaRouting
+### ver1系の資料
+#### http://playdocja.appspot.com/documentation/1.1/routes
 
