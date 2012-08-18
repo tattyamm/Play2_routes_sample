@@ -1,4 +1,4 @@
-package controllers
+package daemon
 
 import org.apache.commons.daemon.Daemon
 import org.apache.commons.daemon.DaemonContext
