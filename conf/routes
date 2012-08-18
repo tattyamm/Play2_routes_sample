@@ -10,44 +10,44 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 ## 基本
 
 ### 静的パス。Static path。完全一致した場合。
-GET     /                            controllers.Application.index
-GET     /test11                      controllers.Application.test11
+GET     /                            controllers.RESTSample.index
+GET     /test11                      controllers.RESTSample.test11
 
 ### 動的パート。Dynamic parts。クライアントからIDを受け取る場合など。/test12/123
-GET     /test12/:id                  controllers.Application.test12(id:Int)
+GET     /test12/:id                  controllers.RESTSample.test12(id:Int)
 ### 動的パート。ワイルドカードを使える。/test3/hogeや、/test3/huga/fugaなどを受け取れる。
-GET     /test13/*name                controllers.Application.test13(name:String)
+GET     /test13/*name                controllers.RESTSample.test13(name:String)
 ### 動的パート。正規表現を使える。$id<regex>の中に書く。以下の例は数字4文字。
-GET     /test14/$id<[0-9]{4}+>       controllers.Application.test14(id:Int)
+GET     /test14/$id<[0-9]{4}+>       controllers.RESTSample.test14(id:Int)
 
 
 ## 引数について
 
 ### 引数を取らない
-GET     /test21                      controllers.Application.test21
+GET     /test21                      controllers.RESTSample.test21
 ### 引数を取る。書き方その1。/test22/123
-GET     /test22/:id                  controllers.Application.test22(id:Int)
+GET     /test22/:id                  controllers.RESTSample.test22(id:Int)
 ### 引数を取る。書き方その2。/test23?id=123
-GET     /test23                      controllers.Application.test23(id:Int)
+GET     /test23                      controllers.RESTSample.test23(id:Int)
 ### 引数の型は省略可。（その場合、Stringになる？）
-GET     /test24/:name                controllers.Application.test24(name)
+GET     /test24/:name                controllers.RESTSample.test24(name)
 ### デフォルト引数の設定。/test25?name=hoge
-GET     /test25                      controllers.Application.test25(name="hoge")
+GET     /test25                      controllers.RESTSample.test25(name="hoge")
 
 
 ## HTTPメソッド
 
 ### POST、GET、PUT、DELETEに対応している。
-POST    /test31                      controllers.Application.test31
-PUT     /test32                      controllers.Application.test32
-DELETE  /test33                      controllers.Application.test33
+POST    /test31                      controllers.RESTSample.test31
+PUT     /test32                      controllers.RESTSample.test32
+DELETE  /test33                      controllers.RESTSample.test33
 
 
 ## 補足
 ### 先に書かれた方が優先される。
 ### play ver1系では、HTTPメソッドにワイルドカードが使えたらしい。今はエラーになる。
 ####
-#### *       /test41                      controllers.Application.test41
+#### *       /test41                      controllers.RESTSample.test41
 ### play ver1系の引数を中括弧で指定するやり方も無くなったらしい。
 
 
